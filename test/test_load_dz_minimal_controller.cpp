@@ -32,12 +32,9 @@ TEST(TestLoadDzMinimalController, load_controller)
     std::make_unique<hardware_interface::ResourceManager>(
       ros2_control_test_assets::minimal_robot_urdf),
     executor, "test_controller_manager");
-  // note that the first argument in cm.load_controller() below is the controller name,
-  // which is a test instance of dz_minimal_controller. 
-  // this does not relate to the gmock name in CMakeLists.txt, 
-  // which is the name of the gmock executable/target/whatever 
-  ASSERT_NO_THROW(cm.load_controller(
-      "test_dz_minimal_controller", "dz_minimal_controller/DzMinimalController"));
+ 
+  ASSERT_NO_THROW(
+    cm.load_controller("load_minimal_controller", "dz_minimal_controller/DzMinimalController"));
 }
 
 int main(int argc, char ** argv)
