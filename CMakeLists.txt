@@ -91,7 +91,7 @@ if(BUILD_TESTING) #BUILD_TESTING
   )
   #https://github.com/ros-controls/ros2_controllers/blob/eecb7f7af8cd750b9b4116947ae31fb5df52dcfd/admittance_controller/CMakeLists.txt
   target_include_directories(test_load_dz_minimal_controller PUBLIC ${GMOCK_INCLUDE_DIRS})
-  target_link_libraries(test_load_dz_minimal_controller ${GMOCK_LIBRARIES}) #and project name?
+  target_link_libraries(test_load_dz_minimal_controller ${GMOCK_LIBRARIES} ${PROJECT_NAME} ${GENERATE_PARAMETER_LIBRARY_NAME}) #and project name?
   ament_target_dependencies(test_load_dz_minimal_controller
     controller_manager
     hardware_interface
