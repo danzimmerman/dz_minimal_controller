@@ -10,6 +10,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 # changed to PickNik style reusable list -- will this be an issue with Eigen3/eigen_cmake_module
 set(THIS_PACKAGE_INCLUDE_DEPENDS
+  control_msgs  
   controller_interface
   generate_parameter_library
   hardware_interface
@@ -48,9 +49,10 @@ install(TARGETS ${PROJECT_NAME} ${GENERATE_PARAMETER_LIBRARY_NAME}
 )
 
 if(BUILD_TESTING)
-
   find_package(ament_cmake_gmock REQUIRED)
+  find_package(control_msgs REQUIRED)
   find_package(controller_manager REQUIRED)
+  find_package(controller_interface REQUIRED) #why find if I don't use? GMock?
   find_package(hardware_interface REQUIRED)
   find_package(ros2_control_test_assets REQUIRED)
 
