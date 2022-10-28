@@ -34,7 +34,7 @@ TEST(TestLoadDzMinimalController, load_controller)
     executor, "test_controller_manager");
  
   ASSERT_NO_THROW(
-    cm.load_controller("load_minimal_controller", "dz_minimal_controller/DzMinimalController"));
+    cm.load_controller("load_dz_minimal_controller", "dz_minimal_controller/DzMinimalController"));
 }
 
 int main(int argc, char ** argv)
