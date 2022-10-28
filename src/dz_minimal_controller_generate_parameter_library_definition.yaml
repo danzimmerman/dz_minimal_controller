@@ -1,0 +1,28 @@
+dz_minimal_controller:
+  joints: 
+    type: string_array
+    default_value: []
+    description: "Name of the joints to control"
+    validation:
+      size_gt<>: [0]
+    read_only: true
+  
+  command_interfaces: 
+    type: string_array 
+    default_value: []
+    description: "Names of the command interfaces to claim."
+    validation:
+      size_gt<>: [0]
+      subset_of<>: [["position", "velocity"]] 
+      unique<>: null
+    read_only: true
+  
+  state_interfaces:
+    type: string_array
+    default_value: []
+    description: "Names of the state interfaces to claim."
+    validation:
+      size_gt<>: [0]
+      subset_of<>: [["position", "velocity"]]
+      unique<>: null
+    read_only: true

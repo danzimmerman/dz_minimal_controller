@@ -1,0 +1,40 @@
+# see https://github.com/ros-controls/ros2_controllers/blob/master/joint_trajectory_controller/src/joint_trajectory_controller_parameters.yaml
+# and https://github.com/PickNikRobotics/generate_parameter_library/blob/main/example/test/example_params.yaml
+# but actually see admittance_controller
+# because I guess this has to match the example robot URDF and other things
+
+
+# There's a TestSystemHardware which has three joints
+# and has velocity command interfaces and p/v/a state interfaces 
+# https://github.com/ros-controls/ros2_control/blob/master/ros2_control_test_assets/include/ros2_control_test_assets/descriptions.hpp#L153
+
+# maybe I'm just not calling it out here
+
+#i guess this needs to the the name in the TESTS! 
+# See https://github.com/ros-controls/ros2_controllers/blob/master/joint_trajectory_controller/test/config/test_joint_trajectory_controller.yaml
+
+test_dz_minimal_controller: 
+  ros__parameters:
+    joints:
+      - joint1
+      
+    command_interfaces: 
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+# test_dz_minimal_controller: 
+#   ros__parameters:
+#     joints:
+#       - joint1
+#       - joint2
+#       - joint3
+      
+#     command_interfaces: 
+#       - velocity
+
+#     state_interfaces:
+#       - position
+#       - velocity

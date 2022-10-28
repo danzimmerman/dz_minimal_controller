@@ -1,0 +1,9 @@
+<library path="dz_minimal_controller">
+  <class name="dz_minimal_controller/DzMinimalController" 
+         type="dz_minimal_controller::DzMinimalController" 
+         base_class_type="controller_interface::ControllerInterface">
+  <description>
+    A minimal, do-nothing ROS2 controller to figure out generate_parameter_library and GMock Testing
+  </description>
+  </class>
+</library>
