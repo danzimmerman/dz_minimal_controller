@@ -25,8 +25,8 @@
  * 
  * The resulting Params, ParamListener, etc. go into the project's normal namespace 
  * 
- * From the pose tracker, for example:
- * namespace pw_servo_pose_tracker {
+ * For example:
+ * namespace dz_minimal_controller {
  *  struct Params {...};
  * ...
  * }
