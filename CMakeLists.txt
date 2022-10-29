@@ -50,7 +50,7 @@ target_link_libraries(${PROJECT_NAME}
   ${GENERATE_PARAMETER_LIBRARY_NAME}
 )
 
-pluginlib_export_plugin_description_file(controller_interface dz_minimal_plugin.xml)
+pluginlib_export_plugin_description_file(controller_interface dz_minimal_controller.xml)
 
 install(
   DIRECTORY include/
