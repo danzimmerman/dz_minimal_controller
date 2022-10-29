@@ -6,7 +6,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 # changed to PickNik style reusable list -- will this be an issue with Eigen3/eigen_cmake_module
 set(THIS_PACKAGE_INCLUDE_DEPENDS
-  ament_cmake_ros
   controller_interface
   hardware_interface
   pluginlib
@@ -50,7 +49,7 @@ target_link_libraries(${PROJECT_NAME}
   ${GENERATE_PARAMETER_LIBRARY_NAME}
 )
 
-pluginlib_export_plugin_description_file(controller_interface dz_minimal_plugin.xml)
+pluginlib_export_plugin_description_file(controller_interface dz_minimal_controller.xml)
 
 install(
   DIRECTORY include/
@@ -91,7 +90,7 @@ if(BUILD_TESTING) #BUILD_TESTING
   )
   #https://github.com/ros-controls/ros2_controllers/blob/eecb7f7af8cd750b9b4116947ae31fb5df52dcfd/admittance_controller/CMakeLists.txt
   target_include_directories(test_load_dz_minimal_controller PUBLIC ${GMOCK_INCLUDE_DIRS})
-  target_link_libraries(test_load_dz_minimal_controller ${GMOCK_LIBRARIES}) #and project name?
+  target_link_libraries(test_load_dz_minimal_controller ${GMOCK_LIBRARIES} ${PROJECT_NAME} ${GENERATE_PARAMETER_LIBRARY_NAME}) #and project name?
   ament_target_dependencies(test_load_dz_minimal_controller
     controller_manager
     hardware_interface
