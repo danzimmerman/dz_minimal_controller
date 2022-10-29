@@ -6,7 +6,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 # changed to PickNik style reusable list -- will this be an issue with Eigen3/eigen_cmake_module
 set(THIS_PACKAGE_INCLUDE_DEPENDS
-  ament_cmake_ros
   controller_interface
   hardware_interface
   pluginlib
