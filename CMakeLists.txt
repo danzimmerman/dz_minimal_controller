@@ -22,17 +22,16 @@ find_package(ament_cmake REQUIRED)
 foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
   find_package(${Dependency} REQUIRED)
 endforeach()
-set(GENERATE_PARAMETER_LIBRARY_NAME ${PROJECT_NAME}_generated_parameter_library)
 
-add_library(${PROJECT_NAME} SHARED src/${PROJECT_NAME}.cpp)
-target_include_directories(${PROJECT_NAME} PRIVATE include)
-generate_parameter_library(${GENERATE_PARAMETER_LIBRARY_NAME} src/${PROJECT_NAME}_generate_parameter_library_definition.yaml)
-target_link_libraries(${PROJECT_NAME} ${GENERATE_PARAMETER_LIBRARY_NAME})
-ament_target_dependencies(${PROJECT_NAME} ${THIS_PACKAGE_INCLUDE_DEPENDS})
+add_library(dz_minimal_controller SHARED src/dz_minimal_controller.cpp)
+target_include_directories(dz_minimal_controller PRIVATE include)
+generate_parameter_library(dz_minimal_controller_generated_parameter_library src/dz_minimal_controller_generate_parameter_library_definition.yaml)
+target_link_libraries(dz_minimal_controller dz_minimal_controller_generated_parameter_library)
+ament_target_dependencies(dz_minimal_controller ${THIS_PACKAGE_INCLUDE_DEPENDS})
 
 # Causes the visibility macros to use dllexport rather than dllimport,
 # which is appropriate when building the dll but not consuming it.
-target_compile_definitions(${PROJECT_NAME} PRIVATE "DZ_MINIMAL_CONTROLLER_BUILDING_LIBRARY")
+target_compile_definitions(dz_minimal_controller PRIVATE "DZ_MINIMAL_CONTROLLER_BUILDING_LIBRARY")
 
 pluginlib_export_plugin_description_file(controller_interface dz_minimal_controller.xml)
 
@@ -41,8 +40,8 @@ install(DIRECTORY include/
 )
   #https://github.com/tylerjw/ros2_controllers/blob/2d8816c7d835f1957780ef61ee545495c8206d8a/admittance_controller/CMakeLists.txt#L57
 
-install(TARGETS ${PROJECT_NAME} ${GENERATE_PARAMETER_LIBRARY_NAME}
-  EXPORT export_${PROJECT_NAME}
+install(TARGETS dz_minimal_controller dz_minimal_controller_generated_parameter_library
+  EXPORT export_dz_minimal_controller
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
@@ -70,7 +69,7 @@ if(BUILD_TESTING)
 endif()
 
 ament_export_targets(
-  export_${PROJECT_NAME} HAS_LIBRARY_TARGET
+  export_dz_minimal_controller HAS_LIBRARY_TARGET
 )
 ament_export_dependencies(
   ${THIS_PACKAGE_INCLUDE_DEPENDS}
