@@ -13,13 +13,15 @@
 #i guess this needs to the the name in the TESTS! 
 # See https://github.com/ros-controls/ros2_controllers/blob/master/joint_trajectory_controller/test/config/test_joint_trajectory_controller.yaml
 
-test_dz_minimal_controller: 
+load_dz_minimal_controller: 
   ros__parameters:
     joints:
       - joint1
+      - joint2
       
     command_interfaces: 
       - position
+      - velocity
 
     state_interfaces:
       - position
