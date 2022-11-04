@@ -115,14 +115,9 @@ controller_interface::return_type DzMinimalController::update(
 
   return controller_interface::return_type::OK;
 }
+}  // namespace dz_minimal_controller
 
 #include "pluginlib/class_list_macros.hpp"
 
 PLUGINLIB_EXPORT_CLASS(
   dz_minimal_controller::DzMinimalController, controller_interface::ControllerInterface)
-
-
-
-
-
-}  // namespace dz_minimal_controller
