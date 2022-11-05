@@ -38,6 +38,10 @@ pluginlib_export_plugin_description_file(controller_interface dz_minimal_control
 install(DIRECTORY include/
   DESTINATION include
 )
+
+install(DIRECTORY config launch 
+  DESTINATION share/${PROJECT_NAME}
+)
   #https://github.com/tylerjw/ros2_controllers/blob/2d8816c7d835f1957780ef61ee545495c8206d8a/admittance_controller/CMakeLists.txt#L57
 
 install(TARGETS dz_minimal_controller dz_minimal_controller_generated_parameter_library

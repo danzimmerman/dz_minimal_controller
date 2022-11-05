@@ -103,14 +103,18 @@ controller_interface::CallbackReturn DzMinimalController::on_deactivate(
 }
 
 controller_interface::return_type DzMinimalController::update(
-  const rclcpp::Time & /* time */, const rclcpp::Duration & period)
+  const rclcpp::Time & /* time */, const rclcpp::Duration & /*period*/)
 {
-  auto clk = *this->get_node()->get_clock(); // probably reconsider for RT but also we won't be logging
-  RCLCPP_INFO_THROTTLE(this->get_node()->get_logger(),
-    clk,
-    period.nanoseconds()/(50*1'000'000), // yet again https://github.com/ros2/rclcpp/issues/1929
-    "update() returns OK at 1/50th the loop rate"
+  RCLCPP_INFO_STREAM_ONCE(this->get_node()->get_logger(),
+    "update() returns OK, printing this once (maybe?)"
   );
+  // auto clk = *this->get_node()->get_clock(); // probably reconsider for RT but also we won't be logging
+  // RCLCPP_INFO_THROTTLE(this->get_node()->get_logger(),
+  //   clk,
+  //   //also this just doesn't work
+  //   period.nanoseconds()/(1000*1000000), // yet again https://github.com/ros2/rclcpp/issues/1929
+  //   "update() returns OK at 1/1000th the loop rate (false, seems to be loop rate)"
+  // );
   //https://github.com/ros2/ros2_documentation/pull/3143
 
   return controller_interface::return_type::OK;

@@ -1,0 +1,4 @@
+# I don't really understand if this is redundant from the controllers file or not - who wins?
+controller_manager:
+  ros__parameters:
+    update_rate: 500  # Hz
