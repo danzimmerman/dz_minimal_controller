@@ -1,8 +1,10 @@
 ## Dz Minimal Controller
 
-This is a debugging effort for a shareable minimal reproduction of a ROS2 Control controller using
+This was a debugging effort for a shareable minimal reproduction of a ROS2 Control controller using
  * PickNik's `generate_parameter_library`
  * GMock testing
+
+💡The issues I had below were solved ultimately by upgrading my dependencies to newer versions. This works now.
 
 I'm following along with `admittance_controller` and `joint_trajectory_controller` but didn't want
 to copy either.
