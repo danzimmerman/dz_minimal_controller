@@ -6,6 +6,10 @@ This was a debugging effort for a shareable minimal reproduction of a ROS2 Contr
 
 💡The issues I had below were solved ultimately by upgrading my dependencies to newer versions. This works now.
 
+---
+
+### Original Issue
+
 I'm following along with `admittance_controller` and `joint_trajectory_controller` but didn't want
 to copy either.
 
