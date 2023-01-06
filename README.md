@@ -1,6 +1,8 @@
 ## Dz Minimal Controller
 
-This is a debugging effort for a shareable minimal reproduction of a ROS2 Control controller using
+💡Ultimately the issues here were solved by upgrading libraries to newer versions. 
+
+This was a debugging effort for a shareable minimal reproduction of a ROS2 Control controller using
  * PickNik's `generate_parameter_library`
  * GMock testing
 
