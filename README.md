@@ -13,6 +13,8 @@ This was a debugging effort for a shareable minimal reproduction of a ROS2 Contr
 I'm following along with `admittance_controller` and `joint_trajectory_controller` but didn't want
 to copy either.
 
+See https://answers.ros.org/question/408644/cant-find-testactuatorhardware-in-ros2_control-tests/ 
+
 The full error I get initially is
 
 ```log
