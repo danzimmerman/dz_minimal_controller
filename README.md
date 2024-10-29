@@ -1,1 +1,1 @@
-See the [Wiki](../wiki) for documentation.
+See the [Wiki](./wiki) for documentation.
