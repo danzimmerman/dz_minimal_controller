@@ -1,1 +1,2 @@
-See the [Wiki](../wiki) for documentation.
+See the [Wiki](https://github.com/danzimmerman/dz_minimal_controller/wiki) for documentation.
+
