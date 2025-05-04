@@ -17,7 +17,7 @@
   <depend>rclcpp</depend>
   <depend>rclcpp_lifecycle</depend>
   <depend>launch_param_builder</depend>
-  <depend>ur_description</depend>
+  <depend>ur_robot_driver</depend>
 
 
   <test_depend>ament_cmake_gmock</test_depend>

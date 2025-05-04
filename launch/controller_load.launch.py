@@ -5,7 +5,7 @@ import launch_param_builder
 
 def launch_setup(context, *args, **kwargs):
 
-  robot_description = launch_param_builder.ParameterBuilder("ur_description").xacro_parameter(
+  robot_description = launch_param_builder.ParameterBuilder("ur_robot_driver").xacro_parameter(
     parameter_name="robot_description",
     file_path="urdf/ur.urdf.xacro", 
     mappings={ #use a fake UR5e robot
