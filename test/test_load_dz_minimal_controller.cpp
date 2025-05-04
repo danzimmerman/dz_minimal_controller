@@ -26,18 +26,17 @@
 TEST(TestLoadDzMinimalController, load_controller)
 {
   std::shared_ptr<rclcpp::Executor> executor =
-    std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
+      std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
 
   controller_manager::ControllerManager cm(
-    std::make_unique<hardware_interface::ResourceManager>(
-      ros2_control_test_assets::minimal_robot_urdf),
-    executor, "test_controller_manager");
- 
+      executor, ros2_control_test_assets::minimal_robot_urdf, 
+      "test_controller_manager");
+
   ASSERT_NO_THROW(
-    cm.load_controller("load_dz_minimal_controller", "dz_minimal_controller/DzMinimalController"));
+      cm.load_controller("load_dz_minimal_controller", "dz_minimal_controller/DzMinimalController"));
 }
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
   ::testing::InitGoogleTest(&argc, argv);
   rclcpp::init(argc, argv);
