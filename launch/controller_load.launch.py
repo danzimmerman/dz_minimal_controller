@@ -25,10 +25,15 @@ def launch_setup(context, *args, **kwargs):
     package="controller_manager",
     executable="ros2_control_node",
     parameters=[
-      robot_description, 
       control_file_params["update_rate_file"], 
       control_file_params["controllers_file"]],
     output="screen",
+  )
+  robot_state_pub_node = launch_ros.actions.Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        output="both",
+        parameters=[robot_description],
   )
 
   dz_spawner_node = launch_ros.actions.Node(
@@ -37,7 +42,7 @@ def launch_setup(context, *args, **kwargs):
     arguments=["dz_controller", "--controller-manager", "/controller_manager"]
   )
 
-  return [controller_manager_node, dz_spawner_node]
+  return [controller_manager_node, dz_spawner_node, robot_state_pub_node]
 
 def generate_launch_description():
   return launch.LaunchDescription([launch.actions.OpaqueFunction(function=launch_setup)])
