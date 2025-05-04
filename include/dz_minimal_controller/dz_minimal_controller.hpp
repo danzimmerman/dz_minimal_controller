@@ -32,7 +32,7 @@
  * }
  * generate_parameter_library does not actually nest the .hpp file in a folder like normal includes
  **************************************************************************************************/
-#include "dz_minimal_controller_generated_parameter_library.hpp" // code-gen
+#include "dz_minimal_controller/dz_minimal_controller_generated_parameter_library.hpp" // code-gen
 
 namespace dz_minimal_controller
 {
